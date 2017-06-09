@@ -1,0 +1,16 @@
+{
+  "name": "MarkMeDown",
+  "version": "0.0.1",
+  "description": "Retro-convert rich text to Github flavored markdown for creating hassle free project Readme's",
+  "engines": {
+    "node": "6.9.4"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.15.2"
+  }
+
+}
