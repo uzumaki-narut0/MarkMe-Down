@@ -49,10 +49,12 @@
 <div class="container-fluid">
 <div class = "row">
     <div class="col-md-6 col-sm-6">
+    <!--
         <form id="myform" action="http://localhost:3000/" method="post" >
+        -->
           <textarea rows="30" id="editor1" name="editor1"></textarea>
-          <button type="submit" class="btn btn-block">Mark It Down</button>
-        </form>
+          <button id="markbtn" class="btn btn-block">Mark It Down</button>
+        <!--</form>-->
     </div>
 	<div class="col-md-6 col-sm-6 markdowntext">
 
@@ -67,15 +69,21 @@
             height: '48vh'
         } );
 
-        $('#myform').submit( function(e){
+        // $('#myform').submit( function(e){
 
-            e.preventDefault();
+        //     e.preventDefault();
+        //     console.log('here');
+        //     CKEDITOR.instances.editor1.updateElement();
+        //     var val = document.getElementById( 'editor1' ).value; // The current editor data.
+            
+        // });
+        $('#markbtn').on('click',function(){
             console.log('here');
             CKEDITOR.instances.editor1.updateElement();
-            var val = document.getElementById( 'editor1' ).value; // The current editor data.
-            $.get('https://markmedownserver.herokuapp.com/', function(data){
-                console.log('here');
-                console.log(data);
+            var x = document.getElementById( 'editor1' ).value;
+            console.log(x);
+            $.post('https://markmedownserver.herokuapp.com',{'editor1':x},function(data, status){
+                console.log(status);
             });
         });
     </script>
