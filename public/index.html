@@ -73,9 +73,9 @@
             console.log('here');
             CKEDITOR.instances.editor1.updateElement();
             var val = document.getElementById( 'editor1' ).value; // The current editor data.
-            $.post('https://markmedownserver.herokuapp.com',{'editor1':'val'}, function(data){
+            $.get('https://markmedownserver.herokuapp.com/', function(data){
                 console.log('here');
-                console.log(data.data);
+                console.log(data);
             });
         });
     </script>
