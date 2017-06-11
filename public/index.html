@@ -81,7 +81,7 @@
             var encodedX = encodeURIComponent(x);
             $.post('https://markmedownserver.herokuapp.com',{'editor1':encodedX},function(data, status){
                 console.log(status);
-                console.log(data[0]);
+                console.log(data['data'][0]);
             });
         });
     </script>
