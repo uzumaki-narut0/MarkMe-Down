@@ -28,6 +28,8 @@
         .markdowntext{
             background-color: rgba(0,0,0,0.7);
             border-radius: 5px;
+            color: white;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -81,7 +83,11 @@
             var encodedX = encodeURIComponent(x);
             $.post('https://markmedownserver.herokuapp.com',{'editor1':encodedX},function(data, status){
                 console.log(status);
-                console.log(data['data'][0]);
+                console.log(data['data'].length);
+                for(var i=0 ; i<data['data'].length ; i++)
+                {
+                    $( ".markdowntext" ).append( "<p>"+ data['data'][i] +"</p>" );
+                }
             });
         });
     </script>
